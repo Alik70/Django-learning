@@ -4,4 +4,16 @@
 
 {% block content %}
     <h1>Homepage</h1>
-{% endblock %}
+    {% if user.is_authenticated %}
+        Hi {{ user.email }}!
+        <p><a href="{% url 'logout' %}"> Log out </a></p>
+    {% else %}
+        <p>
+            You are not logged in
+        </p>
+        {# the url parameter takes the name of the url specified in the path or url#}
+        <a href="{% url 'login' %}"> Log In</a>
+        <a href="{% url 'signup' %}"> Sign up</a>
+
+    {% endif %}
+{% endblock content %}
