@@ -162,3 +162,8 @@ AUTHENTICATION_BACKENDS = (
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Media setting
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
