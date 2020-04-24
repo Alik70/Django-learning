@@ -4,17 +4,23 @@
 
 {% block content %}
     <h1>Homepage</h1>
-    <img class="bookcover" src="{% static 'images/WeAreThePros.jpg' %}">
-    {% if user.is_authenticated %}
-        Hi {{ user.email }}!
-        <p><a href="{% url 'account_logout' %}"> Log out </a></p>
-    {% else %}
-        <p>
-            You are not logged in
-        </p>
-        {# the url parameter takes the name of the url specified in the path or url#}
-        <a href="{% url 'account_login' %}"> Log In</a>
-        <a href="{% url 'account_signup' %}"> Sign up</a>
+    <form class="form-inline mt-2 mt-md-0" action="{% url 'search_results' %}" method="get">
+        <input name="q" class="form-control mr-sm-2" type="text" placeholder="Seach" aria-label="Search">
 
-    {% endif %}
+    </form>
+
+    {##}
+    {#    <img class="bookcover" src="{% static 'images/WeAreThePros.jpg' %}">#}
+    {#    {% if user.is_authenticated %}#}
+    {#        Hi {{ user.email }}!#}
+    {#        <p><a href="{% url 'account_logout' %}"> Log out </a></p>#}
+    {#    {% else %}#}
+    {#        <p>#}
+    {#            You are not logged in#}
+    {#        </p>#}
+    {# the url parameter takes the name of the url specified in the path or url#}
+    {#        <a href="{% url 'account_login' %}"> Log In</a>#}
+    {#        <a href="{% url 'account_signup' %}"> Sign up</a>#}
+    {##}
+    {#    {% endif %}#}
 {% endblock content %}

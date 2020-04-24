@@ -36,3 +36,5 @@ def charge(request):
             source=request.POST['stripeToken']
         )
         return render(request, 'orders/charge.html')
+
+
