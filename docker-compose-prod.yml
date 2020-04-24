@@ -7,13 +7,11 @@ services:
 
     #    for dollar signs in secret key add another dollar sign to it otherwise the docker-compose sees it as an error.
     environment:
-      - ENVIRONMENT=development
+      - ENVIRONMENT=production
       - SECRET_KEY=ln2)sw+w)gki9d+v%b$$yl+f7y*s^y15!-ft*&z*$$_5vd)gh)xd
-      - DEBUG=1
+      - DEBUG=0
       - STRIPE_TEST_PUBLISHABLE_KEY=testkeyforstripe
       - STRIPE_TEST_SECRET_KEY=testsecretkeyforstripe
-    volumes:
-      - .:/code
     ports:
       - 8000:8000
     depends_on:
@@ -21,11 +19,6 @@ services:
 
   db:
     image: postgres:9.6-alpine
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
     environment:
       POSTGRES_DB: "db"
       POSTGRES_HOST_AUTH_METHOD: "trust"
-
-volumes:
-  postgres_data:
